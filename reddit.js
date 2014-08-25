@@ -66,11 +66,11 @@ function processUsernames(text) {
 function process(text) {
   var processedSubreddits = processSubreddits(text);
   var processedUsernames = processUsernames(processedSubreddits.html);
-  var processedLinks = processLinks(processedUsernames.html);
-  var processedMarkdown = processMarkdown(processedLinks.html);
+  var processedMarkdown = processMarkdown(processedUsernames.html);
+  var processedLinks = processLinks(processedMarkdown.html);
 
   return {
-    html: processedMarkdown.html,
+    html: processedLinks.html,
     subreddits: processedSubreddits.subreddits,
     usernames: processedUsernames.usernames,
   }
