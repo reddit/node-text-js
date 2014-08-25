@@ -57,6 +57,7 @@ describe('text processor', function() {
       'www.reddit.com',
       'https://www.reddit.com',
       'www.reddit.co.uk',
+      '<a href="http://reddit.com">reddit.com</a>'
     ];
 
     expectedLinks = [
@@ -65,6 +66,7 @@ describe('text processor', function() {
       '<a href="http://www.reddit.com" target="_blank" rel="nofollow">www.reddit.com</a>',
       '<a href="https://www.reddit.com" target="_blank" rel="nofollow">www.reddit.com</a>',
       '<a href="http://www.reddit.co.uk" target="_blank" rel="nofollow">www.reddit.co.uk</a>',
+      '<a href="http://reddit.com">reddit.com</a>',
     ];
 
     text = links.join(',')

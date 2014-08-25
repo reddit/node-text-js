@@ -3,7 +3,7 @@ var converter = new Showdown.converter();
 var tlds = require('./tlds');
 
 var tldRegexString = tlds.join('|').replace(/\./, '\\.');
-var linkRegex = new RegExp('\\b(https?://)?([0-9A-Za-z\\.\\-]+\\.(?:' + tldRegexString + ')[0-9A-Za-z./\\-%\\?=]*)', 'gi');
+var linkRegex = new RegExp('(href=("?\\\'?))?(https?://)?([0-9A-Za-z\\.\\-]+\\.(?:' + tldRegexString + ')[0-9A-Za-z./\\-%\\?=]*)(</a>)?', 'gi');
 
 var subredditRegex = new RegExp('/?r/(\\w+)', 'gi');
 var usernameRegex = new RegExp('/?(?:u|user)/(\\w+)', 'gi');
@@ -15,9 +15,17 @@ function processMarkdown(text) {
 }
 
 function processLinks(text) {
-  text = text.replace(linkRegex, function(match, protocol, url) {
+  text = text.replace(linkRegex, function(match, beginningHtmlLink, quote, protocol, url, endingHtmlLink) {
     protocol = protocol || 'http://';
     var fullUrl = protocol + url;
+
+    if(beginningHtmlLink) {
+      return beginningHtmlLink + fullUrl;
+    }
+
+    if(endingHtmlLink) {
+      return url + endingHtmlLink;
+    }
 
     var link = '<a href="' + fullUrl + '" target="_blank" rel="nofollow">' + url + '</a>';
     return link;
