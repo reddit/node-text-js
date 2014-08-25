@@ -1,0 +1,29 @@
+{
+  "name": "reddit-text-js",
+  "version": "0.0.0",
+  "description": "reddit comment text processor",
+  "main": "reddit.js",
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajacksified/reddit-text-js.git"
+  },
+  "keywords": [
+    "reddit"
+  ],
+  "author": "Jack Lawson <ajacksified@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajacksified/reddit-text-js/issues"
+  },
+  "homepage": "https://github.com/ajacksified/reddit-text-js",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "showdown": "^0.3.1"
+  }
+}
