@@ -64,10 +64,10 @@ function processUsernames(text) {
 }
 
 function process(text) {
-  var processedLinks = processLinks(text);
-  var processedSubreddits = processSubreddits(processedLinks.html);
+  var processedSubreddits = processSubreddits(text);
   var processedUsernames = processUsernames(processedSubreddits.html);
-  var processedMarkdown = processMarkdown(processedUsernames.html);
+  var processedLinks = processLinks(processedUsernames.html);
+  var processedMarkdown = processMarkdown(processedLinks.html);
 
   return {
     html: processedMarkdown.html,
