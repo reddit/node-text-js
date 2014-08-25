@@ -53,6 +53,7 @@ describe('text processor', function() {
   it('sets up autolinks', function(){
     links = [
       'reddit.com',
+      'reddit.com/a-thing',
       'www.reddit.com',
       'https://www.reddit.com',
       'www.reddit.co.uk',
@@ -60,6 +61,7 @@ describe('text processor', function() {
 
     expectedLinks = [
       '<a href="http://reddit.com" target="_blank" rel="nofollow">reddit.com</a>',
+      '<a href="http://reddit.com/a-thing" target="_blank" rel="nofollow">reddit.com/a-thing</a>',
       '<a href="http://www.reddit.com" target="_blank" rel="nofollow">www.reddit.com</a>',
       '<a href="https://www.reddit.com" target="_blank" rel="nofollow">www.reddit.com</a>',
       '<a href="http://www.reddit.co.uk" target="_blank" rel="nofollow">www.reddit.co.uk</a>',
