@@ -74,6 +74,6 @@ describe('text processor', function() {
 
     results = redditText(text);
 
-    expect(results.html).to.equal(expected.html);
+    expect(results.html.split(',')).to.eql(expected.html.split(','));
   });
 });
