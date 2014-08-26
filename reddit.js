@@ -27,7 +27,7 @@ function processLinks(text) {
       return url + endingHtmlLink;
     }
 
-    var link = '<a href="' + fullUrl + '" target="_blank" rel="nofollow">' + url + '</a>';
+    var link = '<a href="' + fullUrl + '" rel="nofollow">' + url + '</a>';
     return link;
   });
 
