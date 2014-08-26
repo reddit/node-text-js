@@ -3,7 +3,7 @@ var converter = new Showdown.converter();
 var tlds = require('./tlds');
 
 var tldRegexString = tlds.join('|').replace(/\./, '\\.');
-var linkRegex = new RegExp('(href=("?\\\'?))?(https?://)?([0-9A-Za-z\\.\\-]+\\.(?:' + tldRegexString + ')[0-9A-Za-z./\\-%\\?=_]*)(</a>)?', 'gi');
+var linkRegex = new RegExp('(href=("?\\\'?))?(https?://)?([0-9A-Za-z\\.\\-]+\\.(?:' + tldRegexString + ')[0-9A-Za-z./\\-%\\?=_;&]*)(</a>)?', 'gi');
 
 var subredditRegex = new RegExp('/?r/(\\w+)', 'gi');
 var usernameRegex = new RegExp('/?(?:u|user)/(\\w+)', 'gi');
