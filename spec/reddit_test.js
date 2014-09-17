@@ -15,39 +15,29 @@ describe('text processor', function() {
 
   it('sets up links to usernames', function(){
     text = '/u/test and /u/tester say hi';
-    expected = {
-      html: '<p><a href="/u/test">/u/test</a> and <a href="/u/tester">/u/tester</a> say hi</p>',
-      usernames: ['test', 'tester']
-    };
+    expected = '<p><a href="/u/test">/u/test</a> and <a href="/u/tester">/u/tester</a> say hi</p>';
 
     results = redditText(text);
 
-    expect(results.html).to.equal(expected.html);
-    expect(results.usernames).to.eql(expected.usernames);
+    expect(results).to.equal(expected);
   });
 
   it('sets up links to subreddits', function(){
     text = 'check out /r/test and /r/tester';
-    expected = {
-      html: '<p>check out <a href="/r/test">/r/test</a> and <a href="/r/tester">/r/tester</a></p>',
-      subreddits: ['test', 'tester']
-    };
+    expected = '<p>check out <a href="/r/test">/r/test</a> and <a href="/r/tester">/r/tester</a></p>';
 
     results = redditText(text);
 
-    expect(results.html).to.equal(expected.html);
-    expect(results.subreddits).to.eql(expected.subreddits);
+    expect(results).to.equal(expected);
   });
 
   it('converts markdown to html', function() {
     text = '*test*';
-    expected = {
-      html: '<p><em>test</em></p>'
-    };
+    expected = '<p><em>test</em></p>';
 
     results = redditText(text);
 
-    expect(results.html).to.equal(expected.html);
+    expect(results).to.equal(expected);
   });
 
   it('sets up autolinks', function(){
@@ -57,25 +47,27 @@ describe('text processor', function() {
       'www.reddit.com',
       'https://www.reddit.com',
       'www.reddit.co.uk',
-      '<a href="http://reddit.com">reddit.com</a>'
+      '<a href="http://reddit.com">reddit.com</a>',
+      'Reddit is at [reddit](http://www.reddit.com) dot com',
+      '[/r/ICanDrawThat](http://www.reddit.com/r/ICanDrawThat/)'
     ];
 
     expectedLinks = [
-      '<a href="http://reddit.com" target="_blank" rel="nofollow">reddit.com</a>',
-      '<a href="http://reddit.com/a-thing" target="_blank" rel="nofollow">reddit.com/a-thing</a>',
-      '<a href="http://www.reddit.com" target="_blank" rel="nofollow">www.reddit.com</a>',
-      '<a href="https://www.reddit.com" target="_blank" rel="nofollow">www.reddit.com</a>',
-      '<a href="http://www.reddit.co.uk" target="_blank" rel="nofollow">www.reddit.co.uk</a>',
+      '<a href="http://reddit.com" rel="nofollow">reddit.com</a>',
+      '<a href="http://reddit.com/a-thing" rel="nofollow">reddit.com/a-thing</a>',
+      '<a href="http://www.reddit.com" rel="nofollow">www.reddit.com</a>',
+      '<a href="https://www.reddit.com" rel="nofollow">www.reddit.com</a>',
+      '<a href="http://www.reddit.co.uk" rel="nofollow">www.reddit.co.uk</a>',
       '<a href="http://reddit.com">reddit.com</a>',
+      'Reddit is at <a href="http://www.reddit.com">reddit</a> dot com',
+      '<a href="http://www.reddit.com/r/ICanDrawThat/">/r/ICanDrawThat</a>'
     ];
 
-    text = links.join(',')
-    expected = {
-      html: '<p>' + expectedLinks.join(',') + '</p>'
-    }
+    text = links.join('\n')
+    expected = '<p>' + expectedLinks.join('\n') + '</p>';
 
     results = redditText(text);
 
-    expect(results.html.split(',')).to.eql(expected.html.split(','));
+    expect(results.split('\n')).to.eql(expected.split('\n'));
   });
 });
