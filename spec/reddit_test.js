@@ -78,4 +78,12 @@ describe('text processor', function() {
     var results = redditText(text);
     expect(results).to.eql(expected);
   });
+
+  it('allows nested sups', function() {
+    var text = '^Dun ^^Dun ^^^Duuuun'
+    var expected = '<p><sup>Dun</sup> <sup><sup>Dun</sup></sup> <sup><sup><sup>Duuuun</sup></sup></sup></p>';
+
+    var results = redditText(text);
+    expect(results).to.eql(expected);
+  });
 });
