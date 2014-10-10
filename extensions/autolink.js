@@ -21,7 +21,7 @@ module.exports = function(converter) {
           protocol = 'http://';
         }
 
-        return '<a href="' + protocol + link + '" rel="nofollow">' + link + '</a>';
+        return '[' + link + '](' + protocol + link + ')';
       });
     }
   }];

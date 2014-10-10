@@ -53,11 +53,11 @@ describe('text processor', function() {
     ];
 
     expectedLinks = [
-      '<a href="http://reddit.com" rel="nofollow">reddit.com</a>',
-      '<a href="http://reddit.com/a-thing" rel="nofollow">reddit.com/a-thing</a>',
-      '<a href="http://www.reddit.com" rel="nofollow">www.reddit.com</a>',
-      '<a href="https://www.reddit.com" rel="nofollow">www.reddit.com</a>',
-      '<a href="http://www.reddit.co.uk" rel="nofollow">www.reddit.co.uk</a>',
+      '<a href="http://reddit.com">reddit.com</a>',
+      '<a href="http://reddit.com/a-thing">reddit.com/a-thing</a>',
+      '<a href="http://www.reddit.com">www.reddit.com</a>',
+      '<a href="https://www.reddit.com">www.reddit.com</a>',
+      '<a href="http://www.reddit.co.uk">www.reddit.co.uk</a>',
       '<a href="http://reddit.com">reddit.com</a>',
       'Reddit is at <a href="http://www.reddit.com">reddit</a> dot com',
       '<a href="http://www.reddit.com/r/ICanDrawThat/">/r/ICanDrawThat</a>'
@@ -69,5 +69,13 @@ describe('text processor', function() {
     results = redditText(text);
 
     expect(results.split('\n')).to.eql(expected.split('\n'));
+  });
+
+  it('sets up sup tags', function() {
+    var text = 'this is ^super duper';
+    var expected = '<p>this is <sup>super</sup> duper</p>';
+
+    var results = redditText(text);
+    expect(results).to.eql(expected);
   });
 });

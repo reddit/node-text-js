@@ -5,6 +5,7 @@ var converter = new Showdown.converter({
     require('./extensions/subreddit.js'),
     require('./extensions/user.js'),
     require('./extensions/autolink.js'),
+    require('./extensions/sup.js'),
   ]
 });
 
