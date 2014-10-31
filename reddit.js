@@ -1,16 +1,11 @@
-var Showdown = require('showdown');
-var converter = new Showdown.converter({
-  extensions: [
-    require('./extensions/strikethrough.js'),
-    require('./extensions/subreddit.js'),
-    require('./extensions/user.js'),
-    require('./extensions/autolink.js'),
-    require('./extensions/sup.js'),
-  ]
+var Remarkable = require('remarkable');
+var converter = new Remarkable('commonmark', {
+  linkify: true,
+  typographer: true,
 });
 
 function process(text) {
-  return converter.makeHtml(text);
+  return converter.render(text);
 }
 
 module.exports = process;
