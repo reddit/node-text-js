@@ -24,6 +24,6 @@
     "mocha": "^1.21.4"
   },
   "dependencies": {
-    "remarkable": "^1.3.0"
+    "remarkable": "^1.4.1"
   }
 }
