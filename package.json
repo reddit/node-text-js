@@ -1,6 +1,6 @@
 {
   "name": "reddit-text-js",
-  "version": "0.2.1-b",
+  "version": "0.3.0",
   "description": "reddit comment text processor",
   "main": "reddit.js",
   "scripts": {
