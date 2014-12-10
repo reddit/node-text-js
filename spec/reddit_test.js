@@ -24,7 +24,7 @@ describe('text processor', function() {
 
   it('sets up links to usernames', function(){
     text = '/u/test and /u/tester say hi';
-    expected = '<p><a href="/u/test">/u/test</a> and <a href="/u/tester">/u/tester</a> say hi</p>';
+    expected = '<p><a href="/u/test">/u/test</a> and <a href="/u/tester">/u/tester</a> say hi</p>\n';
 
     results = redditText(text);
 
