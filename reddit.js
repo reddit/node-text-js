@@ -1,5 +1,4 @@
 var Remarkable = require('remarkable');
-var p = require('remarkable-regexp')
 
 var subreddit = require('./extensions/subreddit');
 var user = require('./extensions/user');
