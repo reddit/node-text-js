@@ -1,6 +1,6 @@
 {
   "name": "reddit-text-js",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "reddit comment text processor",
   "main": "reddit.js",
   "scripts": {
@@ -21,9 +21,10 @@
   "homepage": "https://github.com/ajacksified/reddit-text-js",
   "devDependencies": {
     "chai": "^1.9.1",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "sinon": "^1.12.1"
   },
   "dependencies": {
-    "remarkable": "^1.4.1"
+    "remarkable": "^1.4.2"
   }
 }

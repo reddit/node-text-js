@@ -1,20 +1,10 @@
 //
 //  Subreddit Extension
-//  /r/subreddit   ->  <a href="/r/subreddit">/r/subreddit</a>
+//  /u/subreddit   ->  <a href="/u/subreddit">/u/subreddit</a>
 //
 
-module.exports = function(converter) {
-  return [{
-    type: 'lang',
-    regex: '\\B(\\\\)?/r/([\\S]+)\\b',
-    replace: function(match, leadingSlash, subreddit) {
-      // Check if we matched the leading \ and return nothing changed if so
-      if (leadingSlash === '\\' || subreddit.indexOf('](') > -1) {
-        return match;
-      } else {
-        return '<a href="/r/' + subreddit + '">/r/' + subreddit + '</a>';
-      }
-    }
-  }];
-};
+var subredditRegex = /(\b|\s|^)(\/r\/([\w]+))\b/gi;
 
+module.exports = function subreddit(text) {
+  return text.replace(subredditRegex, '$1[/r/$3](/r/$3)');
+}
