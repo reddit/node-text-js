@@ -6,5 +6,7 @@
 var subredditRegex = /(^|\s|[.,-;,])(\/r\/([\w]+))($|\s|[.,-;,])/gi;
 
 module.exports = function subreddit(text) {
-  return text.replace(subredditRegex, '$1[/r/$3](/r/$3)$4');
+  if (text) {
+    return text.replace(subredditRegex, '$1[/r/$3](/r/$3)$4');
+  }
 }

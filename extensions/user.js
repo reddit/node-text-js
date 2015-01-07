@@ -5,6 +5,8 @@
 var userRegex = /(^|\s|[.,-;,])(\/u\/([\w]+))($|\s|[.,-;,])/gi;
 
 module.exports = function user(text) {
-  return text.replace(userRegex, '$1[/u/$3](/u/$3)$4');
+  if (text) {
+    return text.replace(userRegex, '$1[/u/$3](/u/$3)$4');
+  }
 }
 
