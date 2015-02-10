@@ -67,7 +67,7 @@ describe('text processor', function() {
 
   it('sets up sup tags', function() {
     var text = 'this is ^super duper';
-    var expected = '<p>this is <sup>super</sup> duper</p>';
+    var expected = '<p>this is <sup>super</sup> duper</p>\n';
 
     var results = redditText(text);
     expect(results).to.eql(expected);
@@ -75,7 +75,7 @@ describe('text processor', function() {
 
   it('allows nested sups', function() {
     var text = '^Dun ^^Dun ^^^Duuuun'
-    var expected = '<p><sup>Dun</sup> <sup><sup>Dun</sup></sup> <sup><sup><sup>Duuuun</sup></sup></sup></p>';
+    var expected = '<p><sup>Dun</sup> <sup><sup>Dun</sup></sup> <sup><sup><sup>Duuuun</sup></sup></sup></p>\n';
 
     var results = redditText(text);
     expect(results).to.eql(expected);

@@ -1,6 +1,6 @@
 {
   "name": "reddit-text-js",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "reddit comment text processor",
   "main": "reddit.js",
   "scripts": {
@@ -25,6 +25,6 @@
     "sinon": "^1.12.1"
   },
   "dependencies": {
-    "remarkable": "^1.4.2"
+    "snuownd": "1.1.0"
   }
 }

@@ -1,22 +1,10 @@
-var Remarkable = require('remarkable');
-
-var subreddit = require('./extensions/subreddit');
-var user = require('./extensions/user');
-
-var converter = new Remarkable('full', {
-  linkify: true,
-  typographer: true,
-});
-
-converter.inline.ruler.enable([
-  'sup'
-]);
+var snuownd = require('snuownd');
+var processor = snuownd.getParser();
 
 function process(text) {
-  text = subreddit(text);
-  text = user(text);
+  if (!text) return text;
 
-  text = converter.render(text);
+  text = processor.render(text);
 
   return text;
 }
