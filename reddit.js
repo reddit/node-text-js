@@ -19,6 +19,8 @@ function process(text) {
   if (!text) return text;
 
   text = processor.render(text);
+  text = text.replace(/<a/g, '<a target="_blank"');
+
   text = sanitize(text, sanitizeOptions);
 
   return text;
