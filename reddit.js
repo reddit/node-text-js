@@ -12,7 +12,7 @@ var allowedTags = sanitize.defaults.allowedTags.concat(
 );
 
 var sanitizeOptions = {
-  allowedTags: allowedTags
+  allowedTags: allowedTags,
 };
 
 function process(text) {
@@ -20,6 +20,7 @@ function process(text) {
 
   text = processor.render(text);
   text = text.replace(/<a/g, '<a target="_blank"');
+  text = text.replace(/&amp;/g, '&');
 
   text = sanitize(text, sanitizeOptions);
 
