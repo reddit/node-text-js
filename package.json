@@ -1,6 +1,6 @@
 {
   "name": "reddit-text-js",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "reddit comment text processor",
   "main": "reddit.js",
   "scripts": {
@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "sanitize-html": "1.6.1",
-    "snuownd": "1.1.0"
+    "snuownd": "git://github.com/JordanMilne/snuownd.git#06a1abc16ad06a1a6eff14afb7f9bcdb34e8ad01"
   }
 }
