@@ -25,7 +25,7 @@
     "sinon": "^1.12.1"
   },
   "dependencies": {
-    "sanitize-html": "git://github.com/ajacksified/sanitize-html.git#4df88124e774def90657512c50b6c2cf97b9d5c5",
+    "sanitize-html": "git://github.com/ajacksified/sanitize-html.git#b0856080e6eb0feb2dfc28b357161986dcab0124",
     "snuownd": "git://github.com/JordanMilne/snuownd.git#06a1abc16ad06a1a6eff14afb7f9bcdb34e8ad01"
   }
 }
